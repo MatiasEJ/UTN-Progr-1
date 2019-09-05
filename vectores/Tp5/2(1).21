@@ -1,0 +1,23 @@
+Algoritmo Ej21
+//Ingresar un vector V1 de n componentes enteros (n<=30),
+//generar e imprimir un nuevo vector V2 con sus componentes en orden invertido.
+	Dimension v[30]
+	Definir n, p, aux Como Entero 
+	Escribir 'Ingrese una dimensión menor o igual a 30'
+	Leer n
+	Si n<30 o n=30 Entonces
+		Para i<-1 Hasta n Con Paso 1 Hacer
+			Escribir 'Ingrese valor posicional ',i
+			Leer p
+			v[i]<-p
+		Fin Para
+		Para i<-n Hasta 1 Con Paso -1 Hacer
+			Escribir v[i]
+		Fin Para
+	SiNo
+		Escribir 'Debe ser menor o igual a 30'
+	Fin Si
+	
+FinAlgoritmo
+
+

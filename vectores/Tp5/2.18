@@ -1,0 +1,25 @@
+Algoritmo Ej18
+	//Se ingresa número n y a continuación n enteros de 3 cifras, 
+	//informar que porcentaje de ellos son capicúas.
+	Definir n,nro,cap,c,d,u,porc Como entero
+	Escribir 'Ingrese cantidad de nros a analizar'
+	leer n
+	
+	Para i<-1 Hasta n Con Paso 1 Hacer
+		Escribir 'Ingrese el nro de la posición ',i
+		Leer nro
+		Si nro>99 y nro <1000 Entonces
+			c<-trunc(nro/100)
+			d<-trunc ((nro- c*100)/10)
+			u<-nro -c*100-d*10
+			Si c=u Entonces
+				cap=cap+1
+			Fin Si
+		SiNo
+			Escribir 'Debe ser de tres cifras'
+			i<-i-1
+		Fin Si
+	Fin Para
+	porc<-cap/n*100
+	Escribir 'El porcentaje de capicuas es', porc
+FinAlgoritmo

@@ -1,0 +1,42 @@
+Algoritmo Ej30
+	//Se lee un número no determinado de veces una terna formada por legajo (int), edad (entero) 
+	//y sueldo (real). El fin del lote se indica con un legajo = -1. Se desea emitir: 
+	//- el legajo del más joven
+	//- el sueldo promedio de quienes tengan entre 20 y 30 años
+	//- el legajo del último de la lista
+	
+	Definir leg,edad,minedad,legmenor,ultimoleg,cuenta2030 Como Entero
+	Definir sueldo, su2030,pro2030 como real
+	minedad<-100
+	su2030<-0
+	cuenta2030<-0
+	Escribir 'Ingrese nro de legajo   -1 para terminar'
+	Leer leg
+	Mientras leg<>-1 Hacer
+
+		Escribir 'Ingrese edad'
+		Leer edad
+		Escribir 'Ingrese sueldo'
+		Leer sueldo
+		
+		Si edad<minedad Entonces
+			legmenor<-leg
+			minedad<-edad
+		Fin Si
+		Si edad>20 y edad<30 Entonces
+			cuenta2030<-cuenta2030+1
+			su2030<-su2030+sueldo
+			
+		Fin Si
+		Si leg<>-1 Entonces
+			ultimoleg<-leg
+		Fin Si
+		Escribir 'Ingrese nro de legajo   -1 para terminar'
+		Leer leg
+		
+	Fin Mientras
+	Escribir 'El legajo del más jóven es: ',legmenor
+	pro2030<-su2030/cuenta2030
+	Escribir 'El sueldo promedio de quienes tienen entre 20 y 30 años es $',pro2030
+	Escribir 'El legajo del último de la lista es: ',ultimoleg
+FinAlgoritmo

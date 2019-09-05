@@ -1,0 +1,53 @@
+Algoritmo Ej19
+//En un locutorio se realizan 3 tipos de llamadas. 
+//1- local, se abona $0,50 por minuto. 
+//2- urbana, se abona $4 los primeros 3 minutos y $2 cada minuto adicional. 
+//3-interurbana, se ingresa una tarifa T1 para los primeros 3 minutos 
+//y una tarifa T2 para cada minuto adicional (t1 y t2 dependen del país de destino).
+//La duración de la llamada es un número entero. 
+//Se ingresa tipo de llamada y duración, 
+//se dese informar: Tipo de llamada, duración e importe a abonar. 
+//Al cambiar el turno se ingresa F y se emite el importe total recaudado.
+	Definir tipo,dur,t1,t2 como entero
+	Definir t,total como real
+	Definir l como caracter
+	total<-0
+	Repetir
+		Escribir 'Ingrese tipo de llamada'
+		Escribir '1- local'
+		Escribir '2- urbana'
+		Escribir '3-interurbana'
+		leer tipo
+		Escribir 'Ingrese duracion de llamada'
+		Leer dur
+		Segun tipo Hacer
+			1:
+				t<- dur *0.5
+			2:
+				Si dur>3 Entonces
+					t<-4+(dur-3)*2
+				SiNo
+					t<-4
+				Fin Si
+			3:  Escribir 'Ingrese tarifa para los primeros 3 minutos'
+				Leer t1
+				Escribir 'Ingrese tarifa por cada minuto adicional'
+				Leer t2
+				Si dur>3 Entonces
+					t<-t1+(dur-3)*t2
+				SiNo
+					
+					t<-t1
+				Fin Si
+				
+			De Otro Modo:
+				Escribir 'Revise la zona ingresada' 
+		Fin Segun
+		Escribir 'Llamada de tipo: ',tipo,' Duración: ',dur,' Importe a abonar: $',t
+		total<-total+t
+		Escribir 'Desea calcular otro importe? F para terminar'
+		Leer l
+	Hasta Que l='f' o l='F' 
+
+Escribir 'El importe total recaudado es ',t
+FinAlgoritmo

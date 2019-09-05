@@ -1,0 +1,27 @@
+Algoritmo Ej33
+	//Se ingresan valores numéricos no nulos.
+	//El fin de los datos se indica ingresando un 0. 
+	//La computadora debe emitir el valor del mayor número ingresado e 
+	//indicar cuántas veces apareció en la lista. 
+	
+	Definir num, max, cont Como Entero
+	max<-0
+	cont<- 0
+	Escribir 'Ingrese un nro - 0 para terminar'
+	Leer num
+	Mientras num<>0 Hacer
+		Si num>max Entonces
+			max<-num
+		Fin Si
+		Si num=max Entonces
+			cont<-cont+1
+
+		Fin Si
+		Escribir 'Ingrese un nro - 0 para terminar'
+		Leer num
+	Fin Mientras
+	Escribir 'El mayor nro es ',max
+	Escribir 'apareció ',cont,' veces'
+FinAlgoritmo
+
+//NO ANDA, PROBAR CON UN VECTOR

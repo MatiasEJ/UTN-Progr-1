@@ -1,0 +1,43 @@
+Algoritmo Ej16
+	//Se ingresa un número natural N, seguido de N números. 
+	//La computadora muestra el valor de los dos mayores.
+	//Si todos los números fueron iguales, emitir un mensaje
+	Definir n,p,i,m1,m2,ma,cuento como Entero
+	
+	Escribir 'Ingrese los valores a analizar'
+	leer n
+	Dimension V[n]
+	
+	Para i<-1 Hasta n Con Paso 1 Hacer
+		Escribir 'Ingrese el valor de la posición ',i
+		Leer p
+		V[i]<-p
+		
+	Fin Para
+	m1<-v[1]
+	m2<-v[2]
+
+	Para i<-3 Hasta n Con Paso 1 Hacer
+		Si v[i]>m1 o v[i]>m2 Entonces
+			ma<-v[i]
+	    sino Si v[i]=m1 y v[i]=m2 y v[i]=ma Entonces
+				cuento=cuento+1
+		Fin Si
+		Fin Si
+	Fin Para
+	Si ma>m1 Entonces
+		m1<-ma
+	SiNo
+		m2<-ma
+	Fin Si
+	
+	Si m1>m2 Entonces
+		Escribir 'Los dos mayores son: ',m1,' y ',m2
+	sino Si m2>m1 Entonces
+			Escribir 'Los dos mayores son: ',m2,' y ',m1
+	sino Si cuento=n-2 Entonces
+				Escribir 'Son todos iguales'
+    Fin si
+    Fin Si
+	Fin Si
+FinAlgoritmo

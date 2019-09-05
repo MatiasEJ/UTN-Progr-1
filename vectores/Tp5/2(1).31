@@ -1,0 +1,53 @@
+Algoritmo Ej31
+	// Se ingresa un número no determinado de veces una terna formada por legajo (int), 
+	//sexo (carácter m o f), edad y nombre. Se desea emitir 
+	//- el legajo de la mujer más joven
+	//- el legajo del varón más viejo
+	//- el promedio de edades de quienes tengan nombre con inicial 'j' o 'J'.
+	
+	Definir leg,edad,minedad,maxedad,legmay,legmenor,edadJ,cantJ Como Entero
+	Definir sexo, inicial como caracter
+	Definir nombre como cadena
+	Definir prom como real
+	
+	minedad<-100
+	maxedad<-0
+	edadJ<-0
+	cantJ<-0
+	Escribir 'Ingrese nro de legajo   -1 para terminar'
+	Leer leg
+	Mientras leg<>-1 Hacer
+		
+		Escribir 'Ingrese nombre'
+		Leer nombre
+		inicial<-Subcadena(nombre,0,1)
+		Escribir 'Ingrese edad'
+		Leer edad
+		Escribir 'Ingrese sexo'
+		Leer sexo
+		Si sexo='f' o sexo='F' Entonces
+			Si edad<minedad Entonces
+				legmenor<-leg
+				minedad<-edad
+			Fin Si
+		Fin Si
+		Si sexo='m' o sexo='M' Entonces
+			Si edad>maxedad Entonces
+				legmay<-leg
+				maxedad<-edad
+			Fin Si
+		Fin Si
+
+		Si inicial='j' o inicial='J' Entonces
+			edadJ<-edad+edadJ
+			cantJ<-cantJ+1
+			Fin Si
+		Escribir 'Ingrese nro de legajo   -1 para terminar'
+		Leer leg
+		
+	Fin Mientras
+	Escribir 'El legajo de la mujer más jóven es: ',legmenor
+	Escribir 'El legajo del hombre más viejo es: ',legmay
+	prom<- edadJ/cantJ
+	Escribir 'La edad promedio de los J es: ',prom
+FinAlgoritmo

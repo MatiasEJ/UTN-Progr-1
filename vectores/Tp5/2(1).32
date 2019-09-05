@@ -1,0 +1,62 @@
+Algoritmo Ej32
+//Se ingresan, para cada alumno de un curso, su número de legajo
+//y las seis notas correspondientes a las materias rendidas en el año. 
+//Para finalizar, se ingresa el número de legajo 0. 
+//La computadora debe emitir los números de legajo de los tres alumnos 
+//con el mejor promedio. 
+//Si hay más de tres alumnos con el mismo promedio máximo, debe emitir un mensaje. 
+	
+	Definir leg,nota,notaf,cont,contmax como entero
+	Definir prom,auxp,auxleg como real
+	Dimension l[50],p[50]
+	notaf<-0
+	cont<-0
+	contmax<-0
+	Escribir 'Ingrese legajo del alumno - 0 para terminar'
+	Leer leg
+	Mientras leg<>0 Hacer
+		notaf<-0
+		Para i<-1 Hasta 6 Con Paso 1 Hacer
+			Escribir 'Ingrese nota de la materia ',i
+			Leer nota
+			notaf<-nota+notaf
+		Fin Para
+		prom<-notaf/6
+		Escribir 'El promedio del alumno ',leg,' es ', prom
+		cont<-cont+1
+		l[cont]<-leg
+		p[cont]<-prom
+		Escribir 'Ingrese legajo del alumno - 0 para terminar'
+		Leer leg
+	Fin Mientras
+	
+	Para i<-cont-1 Hasta 0 Con Paso -1 Hacer
+		Para j<-1 Hasta i Con Paso 1 Hacer
+			Si p[j]<p[j+1] Entonces
+				auxp<-p[j]
+				p[j]<-p[j+1]
+				p[j+1]<-auxp
+				auxleg<-l[j]
+				l[j]<-l[j+1]
+				l[j+1]<-auxleg
+				
+			Fin Si
+		Fin Para
+	fin para
+	//el codigo anterior me ordena de mayor a menor
+	Escribir 'Los numeros de legajo de los tres mayores promedios son: '
+	Escribir l[1]
+	Escribir l[2]
+	Escribir l[3]
+		Para i<-1 Hasta cont Con Paso 1 Hacer
+			Si p[1]=p[j] Entonces
+				contmax<-contmax+1
+
+			Fin Si
+			
+		Fin Para
+		Si contmax>3 Entonces
+			Escribir 'Hay mas de tres alumnos con el mismo promedio maximo'
+
+		Fin Si
+FinAlgoritmo

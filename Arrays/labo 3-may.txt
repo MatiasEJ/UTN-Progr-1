@@ -1,0 +1,157 @@
+https://www.meetup.com
+https://freecodecampba.org
+https://meetupjs.com.ar
+
+/*************************/
+
+Algoritmo sin_titulo
+	definir num,i Como Entero;
+	
+	para i = 1 hasta 3 hacer
+		escribir "ingrese num"
+		leer num
+		escribir "el numero es: ",num;
+	finpara
+	Escribir "fin de ciclo"
+	
+	num = 1;
+	
+	mientras num > 0 hacer
+		Escribir "es num mayor a 0?";
+		leer num;
+	FinMientras
+	
+	Repetir
+		//super menu
+		Escribir "op 1 (-1 para seleccionar)";
+		leer num;
+		
+	Hasta Que num = -1;
+	
+	
+	
+FinAlgoritmo
+
+Algoritmo sin_titulo
+	Definir num,i,j Como Entero
+	num = 1;
+	para i =1 hasta 4 hacer
+		para j = 1 hasta 7
+			escribir "",num Sin Saltar
+			num = num+1;
+		FinPara
+		num = 1;
+		escribir ""
+	finpara
+	
+FinAlgoritmo
+
+
+Definir num,i,j,num2 Como Entero
+	num = 1;
+	num2 = 1
+	para i =1 hasta 3 hacer
+		para j = 1 hasta 5 Hacer
+	
+			escribir "",num2 Sin Saltar
+			
+		FinPara
+		num2 = num2+1
+		
+		escribir "",num
+		num = num+1;
+	finpara
+
+
+
+Algoritmo sin_titulo
+	Definir num,fil,col,num2 Como Entero
+	num = 1;
+	altura = 5
+	para fil = 1 hasta altura hacer
+		para col = 1 hasta fil Hacer
+			Escribir "",col Sin Saltar
+			
+		FinPara
+		Escribir ""
+		
+		
+	finpara
+FinAlgoritmo
+
+
+Algoritmo sin_titulo
+	Definir num,fil,col,num2 Como Entero
+	num = 0;
+	multi = 1
+	para fil = 1 hasta 4 hacer
+		para col = 1 hasta 5 Hacer
+			
+			
+			escribir "",num," " Sin Saltar
+			num = num+1*multi
+		FinPara
+		num= 0;
+		multi= multi+1;
+		escribir ""
+	finpara
+	escribir ""
+FinAlgoritmo
+
+
+Algoritmo sin_titulo
+	Definir num,fil,col,num2 Como Entero
+	
+	fil = 4
+	col = 7
+	para fil = 0 hasta fil hacer
+		para col = 0 hasta col-1 Hacer
+			
+			
+			escribir "*" Sin Saltar
+			
+		FinPara
+		escribir ""
+	finpara
+
+FinAlgoritmo
+
+
+Algoritmo sin_titulo
+	Definir num,fil,col,num2 Como Entero
+	
+	fil = 4
+	col = 7
+	para fil = 0 hasta fil hacer
+		para col = 0 hasta fil Hacer
+			escribir "A" Sin Saltar
+		FinPara
+		escribir ""
+	finpara
+
+FinAlgoritmo
+
+Algoritmo sin_titulo
+	Definir num,fil,col,num2 Como Entero
+	definir a, b Como cadena
+	a = "A"
+	b = "B"
+	
+	col = 2
+	
+		para col = 0 hasta col-1 Hacer
+			escribir "",a 
+			a = a + a + a
+			b = b+b
+			escribir "",b
+		FinPara
+		
+		escribir ""
+	
+
+FinAlgoritmo
+//
+//A
+//BB
+//AAA
+//BBBB

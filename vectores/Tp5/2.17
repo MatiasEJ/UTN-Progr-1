@@ -1,0 +1,26 @@
+Algoritmo Ej17
+	//Se lee un número entero N mayor o igual que 0
+	//la computadora muestra el factorial del mismo.
+	
+	Definir i,n,fact Como Entero
+	Escribir 'Ingrese un número mayor o igual a cero'
+	Leer n
+	fact<-1
+	i<-n
+	Si n>0 Entonces
+		Para n<-n Hasta 1 Con Paso -1 Hacer
+			fact<-fact*n
+		Fin Para
+		Escribir 'El factorial de ',i,' es ',fact
+	SiNo
+		Si n=0 Entonces
+			fact<-1
+			Escribir 'El factorial de ',i,' es ',fact
+		SiNo
+			Escribir 'Debe ingresar un número mayor o igual a cero'
+		Fin Si
+		
+	Fin Si
+	
+	
+FinAlgoritmo

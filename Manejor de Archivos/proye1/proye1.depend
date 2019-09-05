@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1567091613 source:c:\users\alumno\desktop\nuevo pro\proye1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"func.h"
+
+1567091638 c:\users\alumno\desktop\nuevo pro\proye1\func.h
+
+1567091683 source:c:\users\alumno\desktop\nuevo pro\proye1\func.c
+	<stdio.h>
+	"func.h"
+

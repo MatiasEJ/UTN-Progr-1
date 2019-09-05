@@ -1,0 +1,116 @@
+Algoritmo Ej22
+	//Se ingresa nombre del alumno, y curso (todo ordenado por curso),
+	//también se ingresa el promedio general obtenido por cada alumno.
+	//Los cursos se ingresan ordenados, cuando se ingresan los datos
+	//correspondientes a 4to año y por ser fin del año lectivo se pide 
+	//informar apellidos del futuro abanderado y de los escoltas. 
+	//Finaliza el ingreso de datos cuando aparece un curso igual a 0.
+	
+	Definir año,cantalu,auxnota como entero
+	Definir nom,auxnombre  como cadena
+	Escribir 'Ingrese el año - 0 para terminar'
+	Leer año
+	Mientras año<=5 y año <>0
+	Segun año Hacer
+		1:
+			Escribir 'Ingrese la cantidad de alumnos de primer año'
+			Leer cantalu
+			
+			Dimension N1[cantalu]
+			Dimension P1[cantalu]
+			
+			Para j<-1 Hasta cantalu Con Paso 1 Hacer
+				Escribir 'Ingrese el nombre del alumno'
+				Leer nom
+				N1[j]<-nom
+				Escribir 'Ingrese el promedio del alumno ', N1[j]
+				Leer P1[j]
+				
+			Fin Para
+		2:
+			Escribir 'Ingrese la cantidad de alumnos de segundo año'
+			Leer cantalu
+			
+			Dimension N2[cantalu]
+			Dimension P2[cantalu]
+			
+			Para j<-1 Hasta cantalu Con Paso 1 Hacer
+				Escribir 'Ingrese el nombre del alumno'
+				Leer nom
+				N2[j]<-nom
+				Escribir 'Ingrese el promedio del alumno ', N2[j]
+				Leer P2[j]
+				
+			Fin Para
+		3:
+			Escribir 'Ingrese la cantidad de alumnos de tercer año'
+			Leer cantalu
+			
+			Dimension N3[cantalu]
+			Dimension P3[cantalu]
+			
+			Para j<-1 Hasta cantalu Con Paso 1 Hacer
+				Escribir 'Ingrese el nombre del alumno'
+				Leer nom
+				N3[j]<-nom
+				Escribir 'Ingrese el promedio del alumno ', N3[j]
+				Leer P3[j]
+				
+			Fin Para
+		4:
+			Escribir 'Ingrese la cantidad de alumnos de cuarto año'
+			Leer cantalu
+			
+			Dimension N4[cantalu]
+			Dimension P4[cantalu]
+			
+			Para j<-1 Hasta cantalu Con Paso 1 Hacer
+				Escribir 'Ingrese el nombre del alumno'
+				Leer nom
+				N4[j]<-nom
+				Escribir 'Ingrese el promedio del alumno ', N4[j]
+				Leer P4[j]
+				
+			Fin Para
+			Para i<-cantalu-1 Hasta 0 Con Paso -1 Hacer
+				Para j<-1 Hasta i Con Paso 1 Hacer
+					Si P4[j]<P4[j+1] Entonces
+						auxnota<-P4[j]
+						P4[j]<-P4[j+1]
+						P4[j+1]<-auxnota
+						auxnombre<-N4[j]
+						N4[j]<-N4[j+1]
+						N4[j+1]<-auxnombre
+						
+					Fin Si
+				Fin Para
+			Fin Para
+			
+			Escribir 'El abanderado es ',N4[1],' con un promedio de ',P4[1]
+			Escribir 'El primer escolta es ',N4[2],' con un promedio de ',P4[2]
+			Escribir 'El segundo escolta es ',N4[3],' con un promedio de ',P4[3]
+		5:
+			Escribir 'Ingrese la cantidad de alumnos de quinto año'
+			Leer cantalu
+			
+			Dimension N5[cantalu]
+			Dimension P5[cantalu]
+			
+			Para j<-1 Hasta cantalu Con Paso 1 Hacer
+				Escribir 'Ingrese el nombre del alumno'
+				Leer nom
+				N5[j]<-nom
+				Escribir 'Ingrese el promedio del alumno ', N5[j]
+				Leer P5[j]
+				
+			Fin Para
+		De Otro Modo:
+			Escribir 'Besito'
+	Fin Segun
+	Escribir 'Ingrese el año - 0 para terminar'
+	Leer año
+	
+Fin mientras
+
+	
+FinAlgoritmo
