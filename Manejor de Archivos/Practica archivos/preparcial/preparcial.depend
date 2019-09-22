@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1568845904 source:e:\proyectos-programacion\programacion 1\manejor de archivos\practica archivos\preparcial\func.c
+	<stdio.h>
+	<string.h>
+	"func.h"
+
+1568845711 e:\proyectos-programacion\programacion 1\manejor de archivos\practica archivos\preparcial\func.h
+

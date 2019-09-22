@@ -1,6 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones-matrices.h"
+#define est 30
+#define pa 50
+
+typedef char string[25];
+typedef int vec[5];
+typedef struct{
+    vec estant;
+}estante;
+
+typedef struct {
+    int estante[est];
+}pas;
+
+typedef struct{
+    int cod,ub,stock;
+    string desc;
+
+}articulo;
+
+typedef pas pasillo[pa];
 
 // PARCIAL 19 de SEPTIEMBRE
 // funciones, vectores, strucs, ordenamientos, busquedas secuenciales y binarias
@@ -29,13 +49,50 @@ del artículo que allí se encuentra; si el estante estuviese vacío, indicarlo 
 
 int main()
 {
-    //50 pasillos, estantes del 1 al 30
+    pasillo pasillos;
+    char opt;
+    printf("Bienvenido.");
+    printf("\na- Actualizar Stock");
+    printf("\nb- Buscar Articulo");
+    printf("\nc- Estantes vacios");
+    printf("\nd- Salir");
+    printf("\nPor favor. seleccione opcion: ");
+    scanf("%c",&opt);
 
-    //ingreso articulo:
-    //pide codigo, ubicacion (p/e) pasillo/estante, descripcion, stock
+        switch (opt)
+        {
+        case 'a':
+            printf("ingreso codigo");
+//            ingreso(codigo, ubicacion, descripcion, stock){
+//            si esta, actualiza stock +1, introduzco ubicacion, tomo datos
+//            sino esta, introduzco ubicacion, tomo datos
+//            }
+            break;
+        case'b':
+            printf("ingreso codigo");
+//            articulos()
+//           codigoPasilloEstante(ubicacion){
+//            muestra codigo, descripcion y stock,
+//            si no hay stock, avisar
+//            }
+            break;
+        case 'c':
+            printf("busqueda art");
+//            contarEstantesVacios(estantes){
+//            si estantes vacios = ALERTA
+//             }
+            break;
+        case 'd':
+            printf("gracias adiosh");
+            break;
+        default:
+            break;
+        }
 
-    //     a) Dado un artículo que ingresa al depósito, conociendo el código del mismo el programa
-    //deberá determinar si ya existe allí; de ser así , actualizará el stock, y en caso contrario, le
-    //asignará una nueva ubicación (pasillo-estante) además de almacenar los datos necesarios.
+
+
+
+
+
 
 }

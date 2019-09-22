@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1568888574 source:e:\proyectos-programacion\programacion 1\manejor de archivos\vectores-apareados\pre\main.c
+	<stdio.h>
+	<string.h>
+	"func.h"
+
+1568888581 e:\proyectos-programacion\programacion 1\manejor de archivos\vectores-apareados\pre\func.h
+

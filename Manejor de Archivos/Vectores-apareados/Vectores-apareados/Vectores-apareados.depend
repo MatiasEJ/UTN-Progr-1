@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1568847372 source:e:\proyectos-programacion\programacion 1\manejor de archivos\vectores-apareados\vectores-apareados\func.c
+	<stdio.h>
+	"main.c"
+	"func.h"
+
+1568847057 e:\proyectos-programacion\programacion 1\manejor de archivos\vectores-apareados\vectores-apareados\func.h
+
+1568847332 source:e:\proyectos-programacion\programacion 1\manejor de archivos\vectores-apareados\vectores-apareados\main.c
+	<stdio.h>
+	<string.h>
+	"func.h"
+
+1568847332 e:\proyectos-programacion\programacion 1\manejor de archivos\vectores-apareados\vectores-apareados\main.c
+	<stdio.h>
+	<string.h>
+	"func.h"
+
