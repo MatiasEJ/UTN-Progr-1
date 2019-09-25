@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1569438861 source:e:\proyectos-programacion\programacion 1\archivos\archivos-matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones-matrices.h"
+
+1567078506 e:\proyectos-programacion\programacion 1\archivos\archivos-matrices\funciones-matrices.h
+

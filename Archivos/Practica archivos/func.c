@@ -13,11 +13,15 @@ void inicializar(matriz ma, int zona, int dias){
 void cargar(matriz ma, int zona, int dias){
     int i,j,cant;
     printf("\nCargar cantidad de agua:\n");
+
     for(int i=0;i<dias;i++){
-        for(int j=0;j<zona;j++){
-            printf("dia [%d] zona [%d]: ",i+1,j+1);
-            scanf("%d",&cant);
-            ma[j+1][i+1]=ma[j+1][i+1]+cant;
+
+            for(int j=0;j<zona;j++){
+                printf("dia [%d] zona [%d]: ",i+1,j+1);
+                while(cant!= -1){
+                    scanf("%d",&cant);
+                    ma[j+1][i+1]=ma[j+1][i+1]+cant;
+            }
         }
     }
 }
