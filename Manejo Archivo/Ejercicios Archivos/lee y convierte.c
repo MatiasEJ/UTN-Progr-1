@@ -13,12 +13,13 @@
     Programa 1 leer de teclado un texto y guardarlo
     programa 2 lee texto convierte a minusculas
 
+    feof()
 
 **/
 
 void main(){
 
-  char texto[50]; /* nombre de cuenta */
+  char texto[50],orig[50]; /* nombre de cuenta */
 
 
    FILE *ptrCf;     /* ptrCf = apuntador al archivo clientes.dat */
@@ -27,16 +28,23 @@ void main(){
       printf( "El archivo no pudo abrirse\n" );
    } /* fin de if */
    else {
-      while ( !feof(ptrCf)) {
+
+    while ( !feof(ptrCf)) {
         fgets(texto,"%s",ptrCf);
+        fflush(stdin);
+        printf("original:\n");
+        printf("%s",texto);
         for (int indice = 0; texto[indice] != '\0'; ++indice){
           texto[indice] = tolower(texto[indice]);
         }
+
+
+        printf("\nA minuscula:\n");
         printf("%s",texto);
 
 
 
-      } /* fin de while */
+    } /* fin de lectura */
 
 
     fclose( ptrCf ); /* fclose cierra el archivo */
