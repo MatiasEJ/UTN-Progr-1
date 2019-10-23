@@ -15,7 +15,6 @@ void cargar(matriz ma, int zona, int dias){
     printf("\nCargar cantidad de agua:\n");
 
     for(int i=0;i<dias;i++){
-
             for(int j=0;j<zona;j++){
                 printf("dia [%d] zona [%d]: ",i+1,j+1);
                 while(cant!= -1){
