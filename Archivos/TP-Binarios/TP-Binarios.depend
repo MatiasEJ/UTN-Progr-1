@@ -1,6 +1,17 @@
 # depslib dependency file v1.0
-1571769520 source:e:\proyectos-programacion\tp-archivos\tp-binarios\main.c
+1571845206 source:e:\proyectos-programacion\tp-archivos\tp-binarios\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<conio.h>
+	"func.h"
+
+1571845303 source:e:\proyectos-programacion\tp-archivos\tp-binarios\func.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"func.h"
+
+1571845206 e:\proyectos-programacion\tp-archivos\tp-binarios\func.h
 
