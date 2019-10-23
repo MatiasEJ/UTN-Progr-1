@@ -4,7 +4,7 @@
 #include <conio.h>
 #include "func.h"
 
-void menu()
+void menu() //SUPERGRAFICOS DE ULTRA TECNOLOGIA //CON LA OPCION 6 se acccede a todo el registro.!!
 {
     printf("\n\n");
     printf("\n  ---------------------------------");
@@ -21,22 +21,15 @@ void menu()
 }
 
 
-int opciones()
+int opciones() //Pregunta si el usuario esta activo
 {
     char act;
     int val;
-    printf("\nUsuario Activo?(s/n): ");
+    printf("  | Usuario Activo?(s/n): ");
     fflush(stdin);
     act = getchar();
     fflush(stdin);
-    if(act == 's')
-    {
-        return val=1;
-    }
-    else if(act == 'n')
-    {
-       return val = 0;
-    }
+    if(act == 's'){return val=1;}else if(act == 'n'){return val = 0;}
     return 0;
 
 }
@@ -57,7 +50,7 @@ void CrearArchivo(FILE *dbEmps,palabra nuevoArch)
         printf("Base de datos default: No encontrada.");
         printf("\nCrear Nueva(n)/Utilizar DB vieja(v): ");
         opt= getchar();
-        printf("----------------------------------------");
+        printf("  ----------------------------------------");
         if(opt == 'n')
         {
             printf("\nNombre nueva DB: ");
@@ -121,6 +114,7 @@ void InsertarDatos(FILE *dbEmps,palabra nuevoArch)
             punt.legajo = existe ;
             intDats(&punt);
             fwrite(&punt, sizeof(empleado), 1, dbEmps);
+            printf("\n  -= LEGAJO %d AGREGADO A LA DB =-", punt.legajo);
         }
 
     }
@@ -136,8 +130,8 @@ void modReg(FILE *dbEmps,palabra nuevoArch)
     int leg,existe=0;
     palabra sarasa;
     strcpy(sarasa,nuevoArch);
-    printf("\n---- MODIFICACION DE ARCHIVOS ----");
-    printf("\nLegajo a modificar: ");
+    printf("\n  ---- MODIFICACION DE ARCHIVOS ----");
+    printf("\n  Legajo a modificar: ");
     scanf("%d",&leg);
     fflush(stdin);
     dbEmps = fopen(sarasa, "r+b");
@@ -148,7 +142,7 @@ void modReg(FILE *dbEmps,palabra nuevoArch)
         fseek(dbEmps,0,SEEK_END);
         nReg=ftell(dbEmps)/sizeof(empleado);
         rewind(dbEmps);
-        printf("\nNº de registros en el archivo = %d\n",nReg);
+        printf("\n  Registros en el archivo = %d\n",nReg); /* CANTIDAD DE REGISTROS EN EL ARCHIVO*/
 
         fread(&punt, sizeof(empleado), 1, dbEmps);
         while(!feof(dbEmps))
@@ -162,7 +156,7 @@ void modReg(FILE *dbEmps,palabra nuevoArch)
                 fseek(dbEmps,pos,SEEK_SET);
 
                 fwrite(&punt, sizeof(empleado), 1, dbEmps);
-                printf("\n -- MODIFICACION REALIZADA EN %d",leg);
+                printf("\n  -= MODIFICACION REALIZADA EN LEGAJO %d =-",leg);
 
                 existe=1;
                 fseek(dbEmps,0,SEEK_END);
@@ -272,25 +266,24 @@ void buscReg(FILE *dbEmps,palabra nuevoArch)
         fread(&punt, sizeof(empleado), 1, dbEmps);
     }
 
-    if (!activo){printf("\n  Usuario no activo");}
-    legajo(dbEmps,nuevoArch);
+    if (!activo){printf("\n  -= Usuario no activo =-");}
+
     fclose(dbEmps);
     //return;
 }
 
+
+//PIDE AL USUARIO DATOS DEL REGISTRO, excepto el LEGAJO.
 void intDats(empleado *reg){
     char act;
-
-    printf("\n  Ingrese Nombre: ");
+    printf("\n  --------------------------------------");
+    printf("\n  | Ingrese Nombre: ");
     scanf("%s", (char *)reg->nombre);
-
-    printf("  Ingrese Apellido: ");
+    printf("  | Ingrese Apellido: ");
     scanf("%s", (char *)reg->apellido);
-
     for(int i=0; i<5; i++){
-        printf("  Venta [%d]: ",i);
+        printf("  | Venta [%d]: ",i);
         scanf("%d", &(reg->compras[i]));
-
         fflush(stdin);
     }
 
@@ -299,6 +292,7 @@ void intDats(empleado *reg){
 
 }
 
+//CON LA OPCION 6 se acccede a todo el registro.
 void mostrarTodo(FILE *dbEmps,palabra nuevoArch){
     empleado punt;
     int numero = 1;
@@ -317,6 +311,8 @@ void mostrarTodo(FILE *dbEmps,palabra nuevoArch){
     fread(&punt, sizeof(empleado), 1, dbEmps);
 
     	system("cls");
+    	printf(" -----------------------------------------------------------------------------------------------------------\n");
+		printf(" TRABAJANDO EN DB: %s \n",nuevoArch);
 		printf(" -----------------------------------------------------------------------------------------------------------\n");
 		printf("\t%-5s\t%s\t\t%s\t\t%s\t%s\t%s\n", "N", "LEGAJO", "NOMBRE", "APELLIDO", "ACT", "COMPRAS");
 		printf(" -----------------------------------------------------------------------------------------------------------\n");
@@ -336,6 +332,7 @@ void mostrarTodo(FILE *dbEmps,palabra nuevoArch){
     fclose(dbEmps);
 }
 
+//CHEQUEA LA EXISTENCIA DEL LEGAJO, sino existe devuelve el valor Introducido.
 int legajo(FILE *dbEmps,palabra nuevoArch)
 {
     empleado punt;
@@ -367,10 +364,10 @@ int legajo(FILE *dbEmps,palabra nuevoArch)
     fclose(dbEmps);
     if (existe == 1){
         system("cls");
-        printf("\n  LEGAJO EXISTESTES");
+        printf("\n  -= LEGAJO EXISTESTES =-");
         return existe = 1;
     }else{
-        printf("\n  LEGAJO NO EXISTE EN LA DB");
+        printf("\n  -= LEGAJO NO EXISTE EN LA DB =-");
         return leg;
     }
 }
