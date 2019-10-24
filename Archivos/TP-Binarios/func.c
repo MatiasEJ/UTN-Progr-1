@@ -114,6 +114,7 @@ void InsertarDatos(FILE *dbEmps,palabra nuevoArch)
             punt.legajo = existe ;
             intDats(&punt);
             fwrite(&punt, sizeof(empleado), 1, dbEmps);
+            system("cls");
             printf("\n  -= LEGAJO %d AGREGADO A LA DB =-", punt.legajo);
         }
 
@@ -156,6 +157,7 @@ void modReg(FILE *dbEmps,palabra nuevoArch)
                 fseek(dbEmps,pos,SEEK_SET);
 
                 fwrite(&punt, sizeof(empleado), 1, dbEmps);
+                system("cls");
                 printf("\n  -= MODIFICACION REALIZADA EN LEGAJO %d =-",leg);
 
                 existe=1;
@@ -181,11 +183,11 @@ void deleteReg(FILE *dbEmps,palabra nuevoArch)
 {
     palabra sarasa;
     strcpy(sarasa,nuevoArch);
-    int leg,existe=0;
+    int leg,activo=0,existe=0;
 
     empleado reg;
 
-    printf("\n  ---- BORRACION ----");
+    printf("\n  ---- Eliminacion ----");
     printf("\n  Legajo a borrar: ");
     scanf("%d",&leg);
     dbEmps = fopen(sarasa, "r+b");
@@ -197,10 +199,16 @@ void deleteReg(FILE *dbEmps,palabra nuevoArch)
         printf("\nArchivo no existe\n");
         exit(1);
         return;
-    }
+    }else{
+    fread(&reg,sizeof(empleado),1,dbEmps);
     while(!feof(dbEmps))
     {
-        if(reg.legajo == leg)
+         if(reg.legajo == leg){
+            existe = 1;
+        }
+
+
+        if(reg.legajo == leg && reg.activ == 1)
         {
             reg.activ = 0;
             int pos=ftell(dbEmps)-sizeof(empleado);
@@ -209,18 +217,23 @@ void deleteReg(FILE *dbEmps,palabra nuevoArch)
             fwrite(&reg, sizeof(empleado), 1, dbEmps);
             printf("\n == MODIFICACION REALIZADA CON EXITO ==");
 
-            existe = 1;
+            fseek(dbEmps,0,SEEK_END);
+        }else if(reg.legajo == leg && reg.activ == 0 ){
+            activo = 1;
             fseek(dbEmps,0,SEEK_END);
         }
+
+
+
         fread(&reg,sizeof(empleado),1,dbEmps);
-
-
     }
-
-    if (!existe )
-        printf("\n -- NO SE ENCONTRO EL LEGAJO %d --",leg);
+    if(activo){
+        printf("\n  Usuario YA inactivo");
+    }else if(!existe){
+        printf("\n  Legajo no encontrado");
+    }
     fclose(dbEmps);
-
+    }
 }
 //
 ////Buscar un registro: se ingresa un legajo y el registro se emite por pantalla o bien se indica que no existe (si ha sido dado de baja lógica se considera que no existe).
@@ -228,7 +241,7 @@ void buscReg(FILE *dbEmps,palabra nuevoArch)
 {
     empleado punt;
     int numero = 1;
-    int i,leg,activo=0;
+    int i,leg,activo=0,existe =0;
     palabra sarasa;
     strcpy(sarasa,nuevoArch);
     dbEmps= fopen(sarasa, "rb");
@@ -251,6 +264,10 @@ void buscReg(FILE *dbEmps,palabra nuevoArch)
     fread(&punt, sizeof(empleado), 1, dbEmps);
     while(!feof(dbEmps))
     {
+         if(punt.legajo == leg){
+            existe = 1;
+        }
+
 
         if(punt.legajo == leg && punt.activ == 1){
             printf("\n\t%d \t%d\t\t%s \t\t%s\t\t", numero, punt.legajo,(char*)punt.nombre, (char*)punt.apellido);
@@ -307,7 +324,7 @@ void mostrarTodo(FILE *dbEmps,palabra nuevoArch){
     {
         printf("\nArchivo no existe \n");
         return;
-    }
+    }else{
     fread(&punt, sizeof(empleado), 1, dbEmps);
 
     	system("cls");
@@ -329,6 +346,7 @@ void mostrarTodo(FILE *dbEmps,palabra nuevoArch){
 
         fread(&punt, sizeof(empleado), 1, dbEmps);
     }
+    }
     fclose(dbEmps);
 }
 
@@ -346,7 +364,7 @@ int legajo(FILE *dbEmps,palabra nuevoArch)
     {
         printf("\nArchivo no existe \n");
     }
-
+    system("cls");
     printf("\n  ---- Busqueda de Activo ----");
     printf("\n  Legajo: ");
     scanf("%d",&leg);
@@ -364,11 +382,13 @@ int legajo(FILE *dbEmps,palabra nuevoArch)
     fclose(dbEmps);
     if (existe == 1){
         system("cls");
-        printf("\n  -= LEGAJO EXISTESTES =-");
+        printf("\n  -= LEGAJO EXISTENTE =-");
         return existe = 1;
     }else{
+        system("cls");
         printf("\n  -= LEGAJO NO EXISTE EN LA DB =-");
         return leg;
     }
+
 }
 

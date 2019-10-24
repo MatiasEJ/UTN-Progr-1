@@ -38,7 +38,7 @@ int main()
             buscReg(dbEmps,nuevoArch);
             break;
         case 5:
-            printf("\n\n***  Nos re vimo' ameo  ***\n\n\n");
+            printf("\n\n***  SALIENDO  ***\n\n\n");
             exit(0);
             break;
         case 6:
