@@ -4,7 +4,7 @@
 #include <conio.h>
 #include "func.h"
 
-void menu() //SUPERGRAFICOS DE ULTRA TECNOLOGIA //CON LA OPCION 6 se acccede a todo el registro.!!
+void menu() //SUPERGRAFICOS DE ULTRA TECNOLOGIA //CON LA OPCION 8 se acccede a todo el registro.
 {
     printf("\n\n");
     printf("\n  ---------------------------------");
@@ -13,7 +13,9 @@ void menu() //SUPERGRAFICOS DE ULTRA TECNOLOGIA //CON LA OPCION 6 se acccede a t
     printf("\n  | [2]. Borrar registro          |");
     printf("\n  | [3]. Modificar registro       |");
     printf("\n  | [4]. Buscar datos             |");
-    printf("\n  | [5]. Salir                    |");
+    printf("\n  | [5]. Listar                   |");
+    printf("\n  | [6]. Convertir a txt          |");
+    printf("\n  | [7]. Salir                    |");
 
 
 
@@ -283,7 +285,11 @@ void buscReg(FILE *dbEmps,palabra nuevoArch)
         fread(&punt, sizeof(empleado), 1, dbEmps);
     }
 
-    if (!activo){printf("\n  -= Usuario no activo =-");}
+    if(activo){
+        printf("\n  Usuario inactivo");
+    }else if(!existe){
+        printf("\n  Legajo no encontrado");
+    }
 
     fclose(dbEmps);
     //return;
@@ -392,3 +398,96 @@ int legajo(FILE *dbEmps,palabra nuevoArch)
 
 }
 
+//Pasar a archivo de texto: el contenido del archivo binario se almacena como archivo de
+//texto. El nombre del archivo de texto es indicado por el usuario. (Es opcional que
+//también indique la carpeta)
+void convertir(FILE *dbEmps,palabra nuevoArch)
+{
+    palabra sarasa;
+    int numero=0,i;
+    strcpy(sarasa,nuevoArch);
+    empleado punt;
+    palabra arcTxt;
+    dbEmps= fopen(sarasa, "rb");
+    FILE *fp;
+    printf("Nombre del archivo de text: ");
+    scanf("%s",arcTxt);
+
+    fp= fopen(arcTxt, "w+");
+
+    if(dbEmps == NULL)
+    {
+        printf("\nArchivo no existe \n");
+        return;
+    }else{
+        fprintf(fp," -----------------------------------------------------------------------------------------------------------\n");
+		fprintf(fp," TRABAJANDO EN DB: %s \n",nuevoArch);
+		fprintf(fp," -----------------------------------------------------------------------------------------------------------\n");
+		fprintf(fp,"\t%-5s\t%s\t\t%s\t\t%s\t%s\t%s\n", "N", "LEGAJO", "NOMBRE", "APELLIDO", "ACT", "COMPRAS");
+		fprintf(fp," -----------------------------------------------------------------------------------------------------------\n");
+    fread(&punt, sizeof(empleado), 1, dbEmps);
+    while(!feof(dbEmps)){
+
+
+        fprintf(fp,"\n\t%-5d\t%d\t\t%s\t\t%s\t\t%d\t",numero, punt.legajo,(char*)punt.nombre, (char*)punt.apellido,punt.activ);
+        for(i=0; i<5; i++)
+        {
+            fprintf(fp,"|%d ",punt.compras[i]);
+        }
+        numero++;
+
+        fread(&punt, sizeof(empleado), 1, dbEmps);
+
+    }
+
+
+        fclose(dbEmps);
+        fclose(fp);
+    }
+
+
+}
+
+
+
+//LISTAR ACTIVOS
+void listar(FILE *dbEmps,palabra nuevoArch){
+    empleado punt;
+    int numero = 1;
+    int i;
+
+    palabra sarasa;
+    strcpy(sarasa,nuevoArch);
+
+    dbEmps= fopen(sarasa, "rb");
+
+    if(dbEmps == NULL)
+    {
+        printf("\nArchivo no existe \n");
+        return;
+    }else{
+    fread(&punt, sizeof(empleado), 1, dbEmps);
+
+    	system("cls");
+    	printf(" -----------------------------------------------------------------------------------------------------------\n");
+		printf(" TRABAJANDO EN DB: %s \n",nuevoArch);
+		printf(" -----------------------------------------------------------------------------------------------------------\n");
+		printf("\t%-5s\t%s\t\t%s\t\t%s\t%s\t%s\n", "N", "LEGAJO", "NOMBRE", "APELLIDO", "ACT", "COMPRAS");
+		printf(" -----------------------------------------------------------------------------------------------------------\n");
+
+    while(!feof(dbEmps))
+    {
+        if(punt.activ){
+        printf("\n\t%-5d\t%d\t\t%s\t\t%s\t\t%d\t", numero, punt.legajo,(char*)punt.nombre, (char*)punt.apellido,punt.activ);
+        for(i=0; i<5; i++)
+        {
+            printf("|%d ",punt.compras[i]);
+        }
+        numero++;
+
+        fread(&punt, sizeof(empleado), 1, dbEmps);
+        }
+    }
+    }
+    fclose(dbEmps);
+}

@@ -38,10 +38,16 @@ int main()
             buscReg(dbEmps,nuevoArch);
             break;
         case 5:
+            listar(dbEmps,nuevoArch);
+            break;
+        case 6:
+            convertir(dbEmps,nuevoArch);
+            break;
+        case 7:
             printf("\n\n***  SALIENDO  ***\n\n\n");
             exit(0);
             break;
-        case 6:
+        case 8:
             mostrarTodo(dbEmps,nuevoArch);
             break;
         default:

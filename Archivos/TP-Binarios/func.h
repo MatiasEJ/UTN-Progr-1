@@ -25,5 +25,7 @@ void deleteReg(FILE *,palabra);
 void modReg(FILE *,palabra);
 void buscReg(FILE *,palabra);
 int legajo(FILE *,palabra);
+void listar(FILE *,palabra);
+void convertir(FILE *,palabra);
 
 #endif // FUNC_H_INCLUDED
