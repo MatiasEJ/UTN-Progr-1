@@ -4,6 +4,9 @@
 #include <conio.h>
 #include "func.h"
 
+/*
+MATIAS EZEQUIEL JUNCOS, Prog I TM Jueves
+*/
 
 
 int main()
