@@ -31,3 +31,19 @@
 	<conio.h>
 	"func.h"
 
+1571951938 source:e:\proyectos-programacion\programacion 1\archivos\tp-binarios_juncos\tp-binarios\func.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"func.h"
+
+1571952043 e:\proyectos-programacion\programacion 1\archivos\tp-binarios_juncos\tp-binarios\func.h
+
+1571945635 source:e:\proyectos-programacion\programacion 1\archivos\tp-binarios_juncos\tp-binarios\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"func.h"
+
