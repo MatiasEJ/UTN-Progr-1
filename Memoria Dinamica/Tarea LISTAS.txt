@@ -1,0 +1,30 @@
+1) hacer union de listas
+
+2)dado un puntero de entrada a un lista
+de con repeticiones . Escribir una funcion
+que me permita obtener una segunda lista 
+con los sig campos 
+	int DATO
+	int repeticion
+	nodo *sig
+
+3) dado un puntero de entrada a lista
+con repeticion obtener una segund lista eliminando repeticiones
+
+4) dados la entrada de dos punteros a listas ordenadas. 
+obtener una tercer lista
+con los elementos de ambas listas en forma ordenada sin pasar dos veces por le mismo luga.
+
+2 5 7 8  9  15
+3 3 9 12 17
+SALE:  		2 3 3 5 7 8 9 9 12 15 17
+
+
+5) Considere Una Lista Ligada no ordenada que puede tener repeticiones. escriba una funcion q reciba
+putnero de entrada ala lista y el puntero de netrada a una lista inicialmente vacia y almacene
+en esta nueva lista los datos q estan en la primera sin repeticiones.
+
+6) escriba una funcion que reciba una lista ligada de enteros
+ordenada de forma creciente y un dato y elimine de la lista ligada todos los nodos cono ese dato;
+
+					

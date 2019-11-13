@@ -1,0 +1,28 @@
+a)crear lista
+
+b)Alta al principio
+
+c)Alta al final
+
+d)Borrar el 1° elemento de la lista
+
+e)borrar el úlitmo elemento de la lista
+f)buscar un elemento de la lista
+g)contar la cantidad de elemntos de la lista
+h)destruir lista
+2) escribir una funcion que pueda borrar un nodo determinado
+a)que borre el 1°
+b)que borre el último
+c)que borre en cualquier lugar (sin repeticiones)
+d)que borre todo los que tengan el valor "x"
+3)Ddado el puntero de entrada a la lista escribir una función que devuelva 1 si es capicua o 0 si no lo es
+4) dado el puntero de entrada a 2 listas ligadas, escribir una función que devuelva 1 si son idénticos y 0 si no lo son (= contenido y tamaño)
+5) dados dos punteros de entrada a dos listas diferentes, obtener una tercer lista con los elementos comunes a ambas
+hacer la unión de dos listas
+7) Dado un puntero de entrada a una lista con repeticiones, escribir una función que me permita obtener una segunda lista con los siguientes campos:
+-int dato
+-int rep
+-nodo*sig
+ dado un puntero de entrada la lista con repeticiones. obtener una segunda lista elminando repeticiones
+9)dadas la entrada a dos punteros de entrada a dos listas ordenadas. obtener una tercera lista con los elementos de ambas listas en forma ordenada, sin pasar 2 veces por el mismo lugar
+10) considere una lista ligada no ordenada que puede tener repeticiones. escribir una función que reciba el puntero de entrada a la lista y el puntero de entrada a una lista inicialmente vacía y almacene esta nueva lista los datos que están en la primera sin repeticiones. escribir una función que reciba una lista ligada de enteros ordenada de forma creciente y un dato y elimine de la lista ligada a los nodos con ese dato
